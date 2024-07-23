@@ -6,41 +6,43 @@
   min-height: 60px; /* Ensure it doesn't get too small */
   background: linear-gradient(
     to right,
-    #f8e1f4,
-    #f2d1e3
-  ); /* Light red background */
+    #f44336,
+    /* Intense red */ #e57373 /* Light red */
+  ); /* Red gradient background */
   color: white; /* White text for contrast */
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for emphasis */
   border-radius: 8px;
   opacity: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Space out h1 and button */
   padding: 0 10px; /* Padding for spacing */
   box-sizing: border-box; /* Include padding in width/height calculation */
   text-align: left; /* Align text to the left */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+  transition: opacity 0.3s ease-in-out, bottom 0.3s ease; /* Smooth transition */
+  z-index: 1000; /* Ensure the modal is on top */
+  border: 1px solid transparent; /* Use transparent border to avoid layout shifts */
 }
 
 .modalInvisible {
   opacity: 0;
   pointer-events: none; /* Prevent interaction when invisible */
+  bottom: -100px;
 }
 
-h1 {
+.buttonH1 {
   margin: 0; /* Remove default margin */
   font-size: 16px; /* Adjust font size */
-  color: black;
+  color: white; /* White text for better contrast */
 }
 
 .modalButton {
-  background-color: transparent; /* White background for the button */
-  color: #ff4d4d; /* Red text for the button */
+  background-color: transparent; /* Transparent background for the button */
+  color: #ffebee; /* Very light red */
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
@@ -48,11 +50,8 @@ h1 {
   font-size: 14px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  position: absolute;
-  top: 2px;
-  right: 2px;
 }
 
-button:hover {
-  background-color: #ffffff; /* Lighter red background on hover */
+.modalButton:hover {
+  background-color: #ff6f6f; /* Light red background on hover */
 }

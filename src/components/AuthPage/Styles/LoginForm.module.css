@@ -83,3 +83,6 @@ span {
 span:hover {
   cursor: pointer;
 }
+.inputError {
+  border: 1px solid red;
+}

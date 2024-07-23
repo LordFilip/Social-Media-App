@@ -1,7 +1,7 @@
 import styles from './Styles/LoginForm.module.css'
 import { useState } from 'react'
 
-const LoginForm = ({ setIsLogin, setModal }) => {
+const LoginForm = ({ setIsLogin, setModal, error, setError }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -9,18 +9,20 @@ const LoginForm = ({ setIsLogin, setModal }) => {
   })
 
   const handleSubmit = (e) => {
-    e.preventDefault() // Prevent default form submission behavior
+    e.preventDefault()
     if (!inputs.email || !inputs.password || !inputs.confirmPassword) {
       setModal(true)
+      setError('Please fill all the inputs')
     } else if (inputs.password !== inputs.confirmPassword) {
-      alert('Passwords do not match')
+      setError('Passwords do not match')
+      setModal(true)
     } else {
-      // Proceed with form submission logic
       console.log('Form submitted successfully')
     }
   }
 
   const handleFocus = () => {
+    setError(false)
     setModal(false)
   }
 
@@ -36,6 +38,7 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             placeholder="Your email..."
             onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             onFocus={handleFocus}
+            className={error ? styles.inputError : ''}
           />
         </div>
         <div className={styles.row}>
@@ -46,6 +49,7 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             placeholder="Your password..."
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
             onFocus={handleFocus}
+            className={error ? styles.inputError : ''}
           />
         </div>
         <div className={styles.row}>
@@ -58,12 +62,21 @@ const LoginForm = ({ setIsLogin, setModal }) => {
               setInputs({ ...inputs, confirmPassword: e.target.value })
             }
             onFocus={handleFocus}
+            className={error ? styles.inputError : ''}
           />
         </div>
         <div className={styles.row}>
           <p>
             Already have an account?{' '}
-            <span onClick={() => setIsLogin(true)}>Let's log in</span>
+            <span
+              onClick={() => {
+                setIsLogin(true)
+                setModal(false)
+                setError(false)
+              }}
+            >
+              Let s log in
+            </span>
           </p>
         </div>
         <div className={styles.row}>

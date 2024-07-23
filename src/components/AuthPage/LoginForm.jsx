@@ -1,7 +1,7 @@
 import styles from './Styles/LoginForm.module.css'
 import { useState } from 'react'
 
-const LoginForm = ({ setIsLogin, setModal }) => {
+const LoginForm = ({ setIsLogin, setModal, error, setError }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -12,8 +12,9 @@ const LoginForm = ({ setIsLogin, setModal }) => {
     e.preventDefault() // Prevent default form submission behavior
     if (!inputs.email || !inputs.password || !inputs.confirmPassword) {
       setModal(true)
-    } else if (inputs.password !== inputs.confirmPassword) {
-      alert('Passwords do not match')
+      setError('Please fill all the inputs')
+
+      return
     } else {
       // Proceed with form submission logic
       console.log('Form submitted successfully')
@@ -22,6 +23,7 @@ const LoginForm = ({ setIsLogin, setModal }) => {
 
   const handleFocus = () => {
     setModal(false)
+    setError(false)
   }
 
   return (
@@ -36,6 +38,7 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             placeholder="Your email..."
             onFocus={handleFocus}
             onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+            className={error ? styles.inputError : ''}
           />
         </div>
         <div className={styles.row}>
@@ -46,12 +49,21 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             placeholder="Your password..."
             onFocus={handleFocus}
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+            className={error ? styles.inputError : ''}
           />
         </div>
         <div className={styles.row}>
           <p>
             Do not have an account yet.{' '}
-            <span onClick={() => setIsLogin(false)}>Let's sign up</span>
+            <span
+              onClick={() => {
+                setIsLogin(false)
+                setModal(false)
+                setError(false)
+              }}
+            >
+              Let s sign up
+            </span>
           </p>
         </div>
         <div className={styles.row}>

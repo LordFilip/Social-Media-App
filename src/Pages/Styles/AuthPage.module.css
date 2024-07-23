@@ -12,6 +12,7 @@
   flex-direction: row;
   background: linear-gradient(to bottom right, #f3e0f5, #e0bbf1, #d7aef2);
   gap: 10px;
+  overflow: hidden;
 }
 
 .box {

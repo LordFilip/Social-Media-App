@@ -1,0 +1,71 @@
+.LeftSidebar {
+  width: 20%;
+  height: 100vh;
+  border-right: 1px solid black;
+  color: rgb(30, 22, 22);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.upper {
+  flex: 1; /* Allow this section to grow and take up available space */
+}
+
+.upper h1 {
+  margin: 0 0 20px; /* Margin below the logo */
+  font-size: 24px; /* Font size for the logo */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Bold text */
+}
+
+.upper ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.upper li {
+  padding: 10px 15px; /* Padding inside each list item */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth background color transition */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 18px; /* Font size for list items */
+}
+
+.upper li:hover {
+  background-color: wheat; /* Lighter background color on hover */
+}
+
+.upper li.active {
+  background-color: #1abc9c; /* Background color for the active item */
+  color: white; /* Ensure text color contrasts with background */
+}
+
+.down {
+  margin-top: auto; /* Pushes the logout button to the bottom of the sidebar */
+  display: flex;
+  justify-content: start; /* Center the button horizontally */
+}
+
+.logoutButton {
+  background-color: rgb(130, 120, 120); /* Bright red background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size for the button text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth background color and scale transition */
+}
+
+.logoutButton:hover {
+  background-color: #c0392b; /* Darker red background on hover */
+}
+
+.logoutButton:active {
+  transform: scale(0.98); /* Slightly reduce size on button press */
+}

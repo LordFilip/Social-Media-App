@@ -9,20 +9,31 @@ import ErrorModal from '../components/ErrorModal/ErrorModal'
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true)
   const [modal, setModal] = useState(false)
+  const [error, setError] = useState('')
 
   return (
     <div className={styles.container}>
       <div className={(styles.form, styles.box)}>
         {isLogin ? (
-          <LoginForm setIsLogin={setIsLogin} setModal={setModal} />
+          <LoginForm
+            setIsLogin={setIsLogin}
+            setModal={setModal}
+            error={error}
+            setError={setError}
+          />
         ) : (
-          <SignupForm setIsLogin={setIsLogin} setModal={setModal} />
+          <SignupForm
+            setIsLogin={setIsLogin}
+            setModal={setModal}
+            error={error}
+            setError={setError}
+          />
         )}
       </div>
       <div className={(styles.form, styles.box)}>
         <img src={image} alt="auth image" />
       </div>
-      <ErrorModal modal={modal} setModal={setModal} />
+      <ErrorModal modal={modal} setModal={setModal} error={error} />
     </div>
   )
 }

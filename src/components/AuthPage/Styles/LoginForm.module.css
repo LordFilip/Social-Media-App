@@ -73,7 +73,9 @@ input:focus {
   ); /* Inverted gradient on hover */
   transform: scale(1.02);
 }
-
+.formTitle {
+  font-size: 36px;
+}
 span {
   text-decoration: underline;
 }

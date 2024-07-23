@@ -1,5 +1,6 @@
 import styles from './Styles/LoginForm.module.css'
 import { useState } from 'react'
+
 const LoginForm = ({ setIsLogin, setModal }) => {
   const [inputs, setInputs] = useState({
     email: '',
@@ -19,9 +20,13 @@ const LoginForm = ({ setIsLogin, setModal }) => {
     }
   }
 
+  const handleFocus = () => {
+    setModal(false)
+  }
+
   return (
     <div className={styles.container}>
-      <h1>Sign Up</h1>
+      <h1 className={styles.formTitle}>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor="email">Email:</label>
@@ -30,6 +35,7 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             id="email"
             placeholder="Your email..."
             onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+            onFocus={handleFocus}
           />
         </div>
         <div className={styles.row}>
@@ -39,23 +45,25 @@ const LoginForm = ({ setIsLogin, setModal }) => {
             id="password"
             placeholder="Your password..."
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+            onFocus={handleFocus}
           />
         </div>
         <div className={styles.row}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="password"
-            id="password"
+            id="confirmPassword"
             placeholder="Confirm your password..."
             onChange={(e) =>
               setInputs({ ...inputs, confirmPassword: e.target.value })
             }
+            onFocus={handleFocus}
           />
         </div>
         <div className={styles.row}>
           <p>
             Already have an account?{' '}
-            <span onClick={() => setIsLogin(true)}>Lets log in</span>
+            <span onClick={() => setIsLogin(true)}>Let's log in</span>
           </p>
         </div>
         <div className={styles.row}>

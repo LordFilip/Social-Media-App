@@ -14,7 +14,7 @@ const AuthPage = () => {
     <div className={styles.container}>
       <div className={(styles.form, styles.box)}>
         {isLogin ? (
-          <LoginForm setIsLogin={setIsLogin} />
+          <LoginForm setIsLogin={setIsLogin} setModal={setModal} />
         ) : (
           <SignupForm setIsLogin={setIsLogin} setModal={setModal} />
         )}

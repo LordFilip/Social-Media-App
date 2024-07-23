@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 10vh 18vw; /* Default padding */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(to bottom right, #f3e0f5, #e0bbf1, #d7aef2);
+  gap: 10px;
+}
+
+.box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 6%;
+  box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsive padding */
+@media (max-width: 1200px) {
+  .container {
+    padding: 6vh 12vw; /* Smaller padding for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3vh 6vw; /* Smaller padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1vh 3vw; /* Even smaller padding for very small screens */
+  }
+}

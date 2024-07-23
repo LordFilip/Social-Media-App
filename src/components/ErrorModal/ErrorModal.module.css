@@ -1,0 +1,50 @@
+/* ErrorModal.module.css */
+.modal {
+  width: 30%;
+  height: 10%;
+  min-width: 200px; /* Ensure it doesn't get too small */
+  min-height: 60px; /* Ensure it doesn't get too small */
+  background-color: #f21212; /* Light red background */
+  color: white; /* White text for contrast */
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Space out h1 and button */
+  padding: 0 10px; /* Padding for spacing */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+  text-align: left; /* Align text to the left */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.modalInvisible {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction when invisible */
+}
+
+h1 {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+}
+
+button {
+  background-color: #ffffff; /* White background for the button */
+  color: #ff4d4d; /* Red text for the button */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffe6e6; /* Lighter red background on hover */
+}

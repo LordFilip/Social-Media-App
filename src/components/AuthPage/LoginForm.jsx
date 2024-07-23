@@ -1,7 +1,10 @@
 import styles from './Styles/LoginForm.module.css'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const LoginForm = ({ setIsLogin, setModal, error, setError }) => {
+  const navigate = useNavigate()
+
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -10,14 +13,14 @@ const LoginForm = ({ setIsLogin, setModal, error, setError }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault() // Prevent default form submission behavior
-    if (!inputs.email || !inputs.password || !inputs.confirmPassword) {
+    if (!inputs.email || !inputs.password) {
       setModal(true)
       setError('Please fill all the inputs')
 
       return
     } else {
       // Proceed with form submission logic
-      console.log('Form submitted successfully')
+      navigate('/homepage')
     }
   }
 

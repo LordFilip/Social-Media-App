@@ -14,7 +14,8 @@ const LeftSidebar = () => {
           <li>Feed</li>
           <li>Posts</li>
           <li>Friends</li>
-          <li>Glupotinje</li>
+          <li>bidonisavanje</li>
+          <li>glupotinje</li>
         </ul>
       </div>
       <div className={styles.down}>

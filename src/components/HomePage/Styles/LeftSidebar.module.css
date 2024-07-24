@@ -1,5 +1,5 @@
 .LeftSidebar {
-  width: 20%;
+  width: 25%;
   height: 100vh;
   border-right: 1px solid black;
   color: rgb(30, 22, 22);
@@ -26,6 +26,7 @@
   list-style-type: none; /* Remove default list styling */
   padding: 0; /* Remove default padding */
   margin: 0; /* Remove default margin */
+  padding-left: 15%;
 }
 
 .upper li {
@@ -33,7 +34,7 @@
   border-radius: 4px; /* Rounded corners */
   transition: background-color 0.3s; /* Smooth background color transition */
   cursor: pointer; /* Pointer cursor on hover */
-  font-size: 18px; /* Font size for list items */
+  font-size: 24px; /* Font size for list items */
 }
 
 .upper li:hover {
@@ -49,6 +50,7 @@
   margin-top: auto; /* Pushes the logout button to the bottom of the sidebar */
   display: flex;
   justify-content: start; /* Center the button horizontally */
+  padding-left: 15%;
 }
 
 .logoutButton {

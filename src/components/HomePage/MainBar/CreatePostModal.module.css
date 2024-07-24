@@ -1,0 +1,38 @@
+.createPostModal {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.modalTitle {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  float: left;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submitButton {
+  background-color: #1da1f2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #0d8ddb;
+}

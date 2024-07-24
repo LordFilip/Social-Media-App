@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import useLogOut from '../../hooks/useLogOut'
 
 const LeftSidebar = () => {
+  // eslint-disable-next-line no-unused-vars
   const { handleLogOut, loading, error } = useLogOut()
 
   const navigate = useNavigate()

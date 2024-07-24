@@ -33,7 +33,7 @@ const AuthPage = () => {
       <div className={(styles.form, styles.box)}>
         <img src={image} alt="auth image" />
       </div>
-      <ErrorModal modal={modal} setModal={setModal} error={error} />
+      <ErrorModal modal={modal} setModal={setModal} isError={error} />
     </div>
   )
 }

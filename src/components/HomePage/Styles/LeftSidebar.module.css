@@ -4,9 +4,10 @@
   justify-content: space-between;
   height: 100vh;
   width: 25%;
-  background-color: #f3e5f5; /* Very light purple */
+  background-color: #fbf9fc; /* Very light purple */
   color: #4a148c; /* Dark purple for text */
   padding: 20px;
+  border-right: 1px solid black;
 }
 
 .upper {

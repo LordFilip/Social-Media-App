@@ -1,0 +1,22 @@
+.profilePage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.postList {
+  list-style: none;
+  padding: 0;
+}
+
+.postItem {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

@@ -7,6 +7,7 @@ const useLogin = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth)
   const [loginError, setLoginError] = useState(null)
+  const [userDoc, setUserDoc] = useState(null)
 
   const login = async (inputs) => {
     // Reset error before making a new login attempt
@@ -29,11 +30,12 @@ const useLogin = () => {
         // Fetch user document from Firestore
         const docRef = doc(firestore, 'users', userCred.user.uid)
         const docSnap = await getDoc(docRef)
-        console.log(userCred.user.email)
+        const userDoc = docSnap.data()
 
         if (docSnap.exists()) {
           // Store user info in localStorage
           localStorage.setItem('user-info', JSON.stringify(docSnap.data()))
+          setUserDoc(userDoc)
           return true // Indicate successful login
         } else {
           setLoginError('User document not found in Firestore')
@@ -49,7 +51,7 @@ const useLogin = () => {
     }
   }
 
-  return { user, loading, error: loginError, login }
+  return { user, loading, error: loginError, login, userDoc }
 }
 
 export default useLogin

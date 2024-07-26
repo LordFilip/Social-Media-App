@@ -1,9 +1,10 @@
 .createPostModal {
   background-color: white;
-  padding: 20px;
   width: 100%;
+  padding: 20px;
   text-align: center;
   border-bottom: 1px solid gray;
+  height: 28vh;
 }
 
 .modalTitle {
@@ -20,6 +21,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+  height: 4rem;
 }
 
 .submitButton {
@@ -31,8 +33,33 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  float: right;
 }
 
 .submitButton:hover {
   background-color: #0d8ddb;
+}
+.container {
+  display: flex;
+  width: 100%;
+}
+.left {
+  width: 15%;
+  overflow: hidden;
+  object-fit: cover;
+  height: 18vh;
+}
+.right {
+  width: 85%;
+  padding-left: 0;
+  padding-right: 5%;
+}
+.left img {
+  padding-left: 0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  float: left;
 }

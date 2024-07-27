@@ -1,13 +1,15 @@
 .LeftSidebar {
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: calc(100vh - 60px); /* Subtract the height of the Navbar */
   width: 25%;
   background-color: #fbf9fc; /* Very light purple */
   color: #4a148c; /* Dark purple for text */
   padding: 20px;
   border-right: 1px solid black;
+  top: 60px; /* Position it below the fixed Navbar */
 }
 
 .upper {

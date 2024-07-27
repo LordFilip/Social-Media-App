@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar/Navbar'
 import useGetPosts from '../hooks/useGetPosts'
 import styles from './Styles/ProfilePage.module.css'
 
@@ -6,6 +7,7 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.profilePage}>
+      <Navbar />
       <h1>Profile Page</h1>
       {loading && <p>Loading posts...</p>}
       {error && <p className={styles.error}>{error}</p>}

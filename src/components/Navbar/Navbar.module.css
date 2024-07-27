@@ -1,0 +1,53 @@
+/* Navbar.module.css */
+.container {
+  position: fixed; /* Make the navbar fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the screen */
+  height: 60px; /* Set a fixed height */
+  background-color: #f0f2f5; /* Dark purple background */
+  color: #4a14a4;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center; /* Center the ul inside the container */
+  align-items: center; /* Center items vertically */
+  padding: 10px 0; /* Padding for spacing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.container ul {
+  list-style: none; /* Remove default list styles */
+  display: flex; /* Display items in a row */
+  margin: auto; /* Remove default margin */
+  justify-content: center;
+  padding: 0; /* Remove default padding */
+  width: 80%;
+  position: relative; /* Required for the absolute positioning of the hover effect */
+}
+
+.container li {
+  font-size: 1.1rem;
+  margin: 0 5%; /* Spacing between items */
+  cursor: pointer; /* Pointer cursor on hover */
+  position: relative; /* Required for the absolute positioning of the hover effect */
+  transition: color 0.3s; /* Smooth transition for color change */
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+}
+
+.container li::after {
+  content: ''; /* Required to create a pseudo-element */
+  position: absolute; /* Position it relative to the parent li */
+  left: 0;
+  bottom: -10px; /* Position it below the li */
+  width: 100%;
+  height: 3px; /* Height of the bottom border */
+  background-color: #4a14a4; /* Color of the bottom border */
+  transform: scaleX(0); /* Initially hidden (no scale) */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  transform-origin: bottom; /* Scale from left to right */
+}
+.container ul li:hover {
+  background-color: #d6d8db;
+}

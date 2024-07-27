@@ -19,8 +19,8 @@ const LeftSidebar = () => {
         <h1>Logo</h1>
         <ul>
           <li onClick={() => navigate('/profilepage')}>Profile</li>
-          <li>Notifications</li>
-          <li>Friends</li>
+          <li onClick={() => navigate('/notifications')}>Notifications</li>
+          <li onClick={() => navigate('/friends')}>Friends</li>
           <li>Messages</li>
           <li>Posts</li>
         </ul>

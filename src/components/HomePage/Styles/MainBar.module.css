@@ -4,4 +4,5 @@
   height: 100vh;
   background-color: #fbf9fc; /* Very light purple */
   margin-left: 25%;
+  overflow: hidden;
 }

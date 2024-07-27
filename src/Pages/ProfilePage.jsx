@@ -2,9 +2,11 @@ import Navbar from '../components/Navbar/Navbar'
 import useGetPosts from '../hooks/useGetPosts'
 import styles from './Styles/ProfilePage.module.css'
 import image from '../../public/assets/auth-image.jpg'
+import LeftSidebar from '../components/ProfilePage/LeftSidebar'
+import RightSidebar from '../components/ProfilePage/RightSidebar'
 
 const ProfilePage = () => {
-  const { posts, loading, error } = useGetPosts()
+  /*const { posts, loading, error } = useGetPosts()*/
 
   return (
     <div className={styles.profilePageContainer}>
@@ -15,17 +17,14 @@ const ProfilePage = () => {
           <img src={image} alt="" />
         </div>
       </div>
+      <div className={styles.username}>
+        <h1>@miuilors</h1>
+      </div>
       <h1>Profile Page</h1>
-      {loading && <p>Loading posts...</p>}
-      {error && <p className={styles.error}>{error}</p>}
-      {posts.length === 0 && !loading && <p>No posts available</p>}
-      <ul className={styles.postList}>
-        {posts.map((post, index) => (
-          <li key={index} className={styles.postItem}>
-            {post}
-          </li>
-        ))}
-      </ul>
+      <div className={styles.innerContainer}>
+        <LeftSidebar></LeftSidebar>
+        <RightSidebar></RightSidebar>
+      </div>
     </div>
   )
 }

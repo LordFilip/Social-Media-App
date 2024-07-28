@@ -37,6 +37,13 @@
   color: #4a148c; /* Dark purple */
   font-size: 1.3rem;
   border-radius: 15px; /* Larger border radius */
+  display: flex;
+  align-items: center;
+}
+
+.upper li p {
+  display: inline-block;
+  margin-left: 1vw;
 }
 
 .upper li:hover {
@@ -66,4 +73,18 @@
 
 .logoutButton:hover {
   background-color: red; /* Slightly darker medium purple */
+}
+.upper li .icon {
+  font-size: 26px;
+}
+
+/* Media query to hide upper li p on smaller screens */
+@media (max-width: 900px) {
+  .upper li p {
+    display: none;
+  }
+  .icon {
+    font-size: 30px;
+    margin: auto;
+  }
 }

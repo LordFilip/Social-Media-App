@@ -26,6 +26,7 @@ const useSignUpWithEmailAndPassword = () => {
         const userDoc = {
           uid: newUser.user.uid,
           email: inputs.email,
+          username: '',
           bio: '',
           profilePicURL: '',
           followers: [],

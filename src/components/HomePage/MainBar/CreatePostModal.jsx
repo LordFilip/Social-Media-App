@@ -28,7 +28,6 @@ const CreatePostModal = () => {
 
   return (
     <div className={styles.createPostModal}>
-      <h1 className={styles.modalTitle}>Add New Post</h1>
       <div className={styles.container}>
         <div className={styles.left}>
           <img src={image} alt="" />

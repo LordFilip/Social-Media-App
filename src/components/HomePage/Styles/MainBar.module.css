@@ -6,3 +6,8 @@
   margin-left: 25%;
   overflow: hidden;
 }
+@media (max-width: 900px) {
+  .MainBar {
+    width: 75%;
+  }
+}

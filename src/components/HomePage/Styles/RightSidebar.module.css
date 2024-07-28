@@ -6,3 +6,8 @@
   top: 60px;
   height: calc(100vh - 60px);
 }
+@media (max-width: 900px) {
+  .RightSidebar {
+    display: none;
+  }
+}

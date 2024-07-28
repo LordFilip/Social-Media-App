@@ -4,7 +4,9 @@ import CreatePostModal from './MainBar/CreatePostModal'
 const MainBar = () => {
   return (
     <div className={styles.MainBar}>
-      <CreatePostModal />
+      <div className={styles.createPostModalContainer}>
+        <CreatePostModal />
+      </div>
     </div>
   )
 }

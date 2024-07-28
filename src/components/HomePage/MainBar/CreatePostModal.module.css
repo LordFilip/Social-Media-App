@@ -1,10 +1,12 @@
 .createPostModal {
+  margin-top: 2vh;
   background-color: #ffffff;
-  width: 100%;
-  padding: 6vh 12%;
+  padding: 4vh 4% 0vh 4%;
   text-align: center;
-  border-bottom: 1px solid gray;
-  height: 28vh;
+  border: 1px solid #d0d2d4;
+
+  border-radius: 30px;
+  margin: 2vh auto;
 }
 
 .modalTitle {
@@ -17,7 +19,7 @@
 .textInput {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   border: 1px solid #ccc;
   border-radius: 30px;
   font-size: 16px;
@@ -44,15 +46,15 @@
   width: 100%;
 }
 .left {
-  width: 12%;
+  width: 14%;
   overflow: hidden;
   object-fit: cover;
   height: 18vh;
 }
 .right {
-  width: 88%;
+  width: 86%;
   padding-left: 0;
-  padding-right: 5%;
+  padding-bottom: 0;
 }
 .left img {
   padding-left: 0;

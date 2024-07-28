@@ -38,9 +38,6 @@ const LeftSidebar = () => {
             <LuMessageSquare className={styles.icon} />
             <p>Messages</p>{' '}
           </li>
-          <li>
-            <p>Posts</p>
-          </li>
         </ul>
       </div>
       <div className={styles.down}>

@@ -5,10 +5,11 @@ import CreatePostModal from '../HomePage/MainBar/CreatePostModal'
 
 const RightSidebar = () => {
   const { posts, loading, error } = useGetPosts()
+
   return (
     <div className={styles.rightSidebar}>
       {' '}
-      <CreatePostModal />
+      <CreatePostModal className={styles.modalWidth} />
       {loading && <p>Loading posts...</p>}
       {error && <p className={styles.error}>{error}</p>}
       {posts.length === 0 && !loading && <p>No posts available</p>}

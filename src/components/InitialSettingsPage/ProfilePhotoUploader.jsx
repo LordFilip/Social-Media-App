@@ -25,21 +25,23 @@ const ProfilePhotoUploader = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className={styles.input}
-      />
-      <button
-        onClick={handleUpload}
-        disabled={loading}
-        className={styles.button}
-      >
-        {loading ? 'Uploading...' : 'Upload Photo'}
-      </button>
-      {error && <p className={styles.error}>Error: {error}</p>}
+    <div className={styles.mainContainer}>
+      <div className={styles.container}>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className={styles.input}
+        />
+        <button
+          onClick={handleUpload}
+          disabled={loading}
+          className={styles.button}
+        >
+          {loading ? 'Uploading...' : 'Upload Photo'}
+        </button>
+        {error && <p className={styles.error}>Error: {error}</p>}
+      </div>
     </div>
   )
 }

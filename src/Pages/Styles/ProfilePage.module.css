@@ -11,7 +11,7 @@
   object-fit: cover;
   margin-bottom: 6vh;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 .coverPhoto img {
   width: 100%;
@@ -46,6 +46,7 @@
 }
 .username h1 {
   float: left;
+  font-size: 3rem;
 }
 
 .error {

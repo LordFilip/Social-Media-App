@@ -6,12 +6,21 @@ const Navbar = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.navbarLeft}>
+        <input
+          type="text"
+          placeholder="Search..."
+          className={styles.inputNavbar}
+        />
+      </div>
+
       <ul>
         <li onClick={() => navigate('/profilepage')}>Profile</li>
         <li onClick={() => navigate('/homepage')}>Homepage</li>
         <li onClick={() => navigate('/friends')}>Friends</li>
         <li>Settings</li>
       </ul>
+      <div className={styles.navbarRight}></div>
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import styles from './CreatePostModal.module.css'
 import useSetPost from '../../../hooks/useSetPost'
 import { useState } from 'react'
-import image from '../../../../public/assets/auth-image.jpg'
+import useGetUser from '../../../hooks/useGetUser'
 
 const CreatePostModal = () => {
   const { addPost, loading, error } = useSetPost()
   const [post, setPost] = useState('')
   const [localError, setLocalError] = useState(null)
+  const { user } = useGetUser()
 
   const handleAddPost = async () => {
     if (!post.trim()) {
@@ -18,6 +19,8 @@ const CreatePostModal = () => {
     if (success) {
       setPost('')
       setLocalError(null)
+    } else {
+      setLocalError('Failed to add post. Please try again.')
     }
   }
 
@@ -30,7 +33,11 @@ const CreatePostModal = () => {
     <div className={styles.createPostModal}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img src={image} alt="" />
+          <img
+            src={user?.profilePicURL}
+            alt="Profile"
+            className={styles.profileImage}
+          />
         </div>
         <div className={styles.right}>
           <input
@@ -40,7 +47,7 @@ const CreatePostModal = () => {
             value={post}
             onChange={handleInputChange}
             disabled={loading}
-            onKeyPress={(e) => {
+            onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 e.preventDefault()
                 handleAddPost()

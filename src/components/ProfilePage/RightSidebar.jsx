@@ -3,7 +3,7 @@ import useGetPosts from '../../hooks/useGetPosts'
 import ProfilePost from './ProfilePost/ProfilePost'
 import CreatePostModal from '../HomePage/MainBar/CreatePostModal'
 
-const RightSidebar = () => {
+const RightSidebar = ({ username }) => {
   const { posts, loading, error } = useGetPosts()
 
   return (
@@ -14,7 +14,12 @@ const RightSidebar = () => {
       {error && <p className={styles.error}>{error}</p>}
       {posts.length === 0 && !loading && <p>No posts available</p>}
       {posts.map((post, index) => (
-        <ProfilePost text={post.text} time={post.time} key={index} />
+        <ProfilePost
+          text={post.text}
+          time={post.time}
+          key={index}
+          username={username}
+        />
       ))}
     </div>
   )

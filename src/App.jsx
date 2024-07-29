@@ -4,6 +4,7 @@ import HomePage from './Pages/HomePage'
 import ProfilePage from './Pages/ProfilePage'
 import NotificationsPage from './Pages/NotificationsPage'
 import Friends from './Pages/Friends'
+import InitialSettingsPage from './Pages/InitialSettingsPage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/profilepage" element={<ProfilePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/friends" element={<Friends />} />
+        <Route path="/initialsettings" element={<InitialSettingsPage />} />
       </Routes>
     </Router>
   )

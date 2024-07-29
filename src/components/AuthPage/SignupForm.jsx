@@ -55,7 +55,7 @@ const LoginForm = ({ setIsLogin, setModal, error, setError }) => {
     if (result) {
       setError('You successfully signed up')
       setModal(true)
-      navigate('/homepage')
+      navigate('/initialsettings')
     } else {
       setError('An error occurred during sign up')
       setModal(true)

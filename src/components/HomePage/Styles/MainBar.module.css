@@ -14,4 +14,8 @@
   .MainBar {
     width: 75%;
   }
+  .createPostModalContainer {
+    width: 90%;
+    margin: auto;
+  }
 }

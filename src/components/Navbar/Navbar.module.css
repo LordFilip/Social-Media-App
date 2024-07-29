@@ -7,7 +7,7 @@
   height: 60px; /* Set a fixed height */
   background-color: #f0f2f5; /* Dark purple background */
   color: #4a14a4;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(201, 197, 197);
   display: flex;
   justify-content: center; /* Center the ul inside the container */
   align-items: center; /* Center items vertically */
@@ -22,7 +22,7 @@
   margin: auto; /* Remove default margin */
   justify-content: center;
   padding: 0; /* Remove default padding */
-  width: 80%;
+  width: 60%;
   position: relative; /* Required for the absolute positioning of the hover effect */
 }
 
@@ -50,4 +50,14 @@
 }
 .container ul li:hover {
   background-color: #d6d8db;
+}
+.inputNavbar {
+  width: 100%;
+  margin-left: 5%;
+}
+.navbarLeft {
+  width: 25%;
+}
+.navbarRight {
+  width: 25%;
 }

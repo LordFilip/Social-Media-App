@@ -12,6 +12,18 @@ const ProfilePhotoUploader = () => {
     setFile(e.target.files[0])
   }
 
+  const handleSkip = async () => {
+    // Path to default photo in public folder
+    const defaultPhotoURL = '../../../public/assets/no-profile-photo.jpg'
+    const success = await setProfilePhoto(defaultPhotoURL)
+    if (success) {
+      console.log('Profile photo set to default successfully')
+      navigate('/homepage')
+    } else {
+      console.log('Failed to set default profile photo')
+    }
+  }
+
   const handleUpload = async () => {
     if (file) {
       const success = await setProfilePhoto(file)
@@ -33,6 +45,9 @@ const ProfilePhotoUploader = () => {
           onChange={handleFileChange}
           className={styles.input}
         />
+        <button onClick={handleSkip} className={styles.button}>
+          Skip
+        </button>
         <button
           onClick={handleUpload}
           disabled={loading}

@@ -7,7 +7,7 @@ const useSetProfilePhoto = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const setProfilePhoto = async (file) => {
+  const setProfilePhoto = async (fileOrURL) => {
     setLoading(true)
     setError(null)
 
@@ -21,14 +21,20 @@ const useSetProfilePhoto = () => {
 
       const uid = userInfo.uid
 
-      // Create a reference to the storage location
-      const storageRef = ref(storage, `profilePhotos/${uid}/${file.name}`)
+      let downloadURL = ''
 
-      // Upload the file to Firebase Storage
-      const snapshot = await uploadBytes(storageRef, file)
-
-      // Get the downloadable URL
-      const downloadURL = await getDownloadURL(snapshot.ref)
+      if (typeof fileOrURL === 'string') {
+        // Assume it's a URL
+        downloadURL = fileOrURL
+      } else {
+        // Assume it's a file
+        const storageRef = ref(
+          storage,
+          `profilePhotos/${uid}/${fileOrURL.name}`
+        )
+        const snapshot = await uploadBytes(storageRef, fileOrURL)
+        downloadURL = await getDownloadURL(snapshot.ref)
+      }
 
       // Update the Firestore document with the new profile photo URL
       await updateDoc(doc(firestore, 'users', uid), {

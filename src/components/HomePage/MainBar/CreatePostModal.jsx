@@ -2,6 +2,7 @@ import styles from './CreatePostModal.module.css'
 import useSetPost from '../../../hooks/useSetPost'
 import { useState } from 'react'
 import useGetUser from '../../../hooks/useGetUser'
+import image from '../../../../public/assets/no-profile-photo.jpg'
 
 const CreatePostModal = () => {
   const { addPost, loading, error } = useSetPost()
@@ -34,7 +35,7 @@ const CreatePostModal = () => {
       <div className={styles.container}>
         <div className={styles.left}>
           <img
-            src={user?.profilePicURL}
+            src={user?.profilePicURL || image}
             alt="Profile"
             className={styles.profileImage}
           />

@@ -58,6 +58,7 @@ const SetUsername = ({ setIsUsername }) => {
         >
           {setUsernameLoading ? 'Setting...' : 'Continue'}
         </button>
+
         {checkUsernameError && (
           <p className={styles.error}>{checkUsernameError}</p>
         )}

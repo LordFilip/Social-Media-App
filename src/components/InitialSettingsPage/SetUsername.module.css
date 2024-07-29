@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /*background: linear-gradient(135deg, #f6f8fa, #f3e7f8);*/
 }
 .modal {
   width: 35vw;

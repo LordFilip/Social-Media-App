@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/" element={<AuthPage />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/profilepage" element={<ProfilePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />

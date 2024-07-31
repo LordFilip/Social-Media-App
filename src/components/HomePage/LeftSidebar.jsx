@@ -13,7 +13,7 @@ const LeftSidebar = () => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    navigate('/auth')
+    navigate('/')
     handleLogOut()
   }
 

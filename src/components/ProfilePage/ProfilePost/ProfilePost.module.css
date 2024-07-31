@@ -30,3 +30,16 @@
   font-size: 1rem;
   color: #444;
 }
+.likeRow {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  margin-top: 2vh;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ import { FaRegHeart } from 'react-icons/fa'
 import { FaRegCommentDots } from 'react-icons/fa'
 import { FaRegShareSquare } from 'react-icons/fa'
 import { FcLike } from 'react-icons/fc'
+import { HiDotsHorizontal } from 'react-icons/hi'
 import { useState } from 'react'
 
 const ProfilePost = ({ text, time, username }) => {
@@ -15,6 +16,9 @@ const ProfilePost = ({ text, time, username }) => {
     <div className={styles.postContainer}>
       <div className={styles.postHeader}>
         <span className={styles.postName}>@{username}</span>
+        <HiDotsHorizontal className={styles.options} />
+      </div>
+      <div className={styles.postSubheader}>
         <span className={styles.postTime}>{formattedTime}</span>
       </div>
       <div className={styles.postMain}>

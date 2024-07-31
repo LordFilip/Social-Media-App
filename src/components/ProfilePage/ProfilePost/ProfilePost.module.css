@@ -12,7 +12,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
+}
+.postSubheader {
+  width: 100%;
+  margin-bottom: 2vh;
 }
 
 .postName {
@@ -22,7 +26,7 @@
 }
 
 .postTime {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #999;
 }
 
@@ -41,5 +45,11 @@
 }
 
 .icon:hover {
+  cursor: pointer;
+}
+.options {
+  font-size: 1.4rem;
+}
+.options:hover {
   cursor: pointer;
 }

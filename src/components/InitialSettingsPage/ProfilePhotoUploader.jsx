@@ -45,16 +45,19 @@ const ProfilePhotoUploader = () => {
           onChange={handleFileChange}
           className={styles.input}
         />
-        <button onClick={handleSkip} className={styles.button}>
-          Skip
-        </button>
-        <button
-          onClick={handleUpload}
-          disabled={loading}
-          className={styles.button}
-        >
-          {loading ? 'Uploading...' : 'Upload Photo'}
-        </button>
+        <div className={styles.buttonsContainer}>
+          <button onClick={handleSkip} className={styles.button}>
+            Skip
+          </button>
+          <button
+            onClick={handleUpload}
+            disabled={loading}
+            className={styles.button}
+          >
+            {loading ? 'Uploading...' : 'Upload Photo'}
+          </button>
+        </div>
+
         {error && <p className={styles.error}>Error: {error}</p>}
       </div>
     </div>

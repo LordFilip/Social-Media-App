@@ -26,6 +26,7 @@ const ProfilePage = () => {
       <Navbar />
       <div className={styles.coverPhoto}>
         <img src={coverPhoto} alt="Cover" className={styles.coverImage} />
+        <button className={styles.coverButton}>Edit cover photo</button>
         <div className={styles.profilePhoto}>
           <img
             src={user.profilePicURL || image}

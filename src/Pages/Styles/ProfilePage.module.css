@@ -12,6 +12,7 @@
   margin-bottom: 6vh;
   position: relative;
   margin-bottom: 80px;
+  position: relative;
 }
 .coverPhoto img {
   width: 100%;
@@ -65,4 +66,12 @@
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
+}
+.coverButton {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+.coverButton:hover {
+  background-color: rgb(233, 237, 240);
 }

@@ -1,11 +1,32 @@
 import { useState } from 'react'
 import { storage, firestore } from '../firebase/config'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  deleteObject,
+} from 'firebase/storage'
 import { doc, updateDoc } from 'firebase/firestore'
 
 const useSetProfilePhoto = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+
+  const deleteExistingProfilePhotos = async (uid) => {
+    try {
+      const userPhotosRef = ref(storage, `profilePhotos/${uid}`)
+      const listResult = await listAll(userPhotosRef)
+
+      const deletePromises = listResult.items.map((itemRef) =>
+        deleteObject(itemRef)
+      )
+      await Promise.all(deletePromises)
+    } catch (err) {
+      console.error('Error deleting existing profile photos:', err)
+      throw new Error('Failed to delete existing profile photos')
+    }
+  }
 
   const setProfilePhoto = async (fileOrURL) => {
     setLoading(true)
@@ -20,6 +41,9 @@ const useSetProfilePhoto = () => {
       }
 
       const uid = userInfo.uid
+
+      // Delete existing profile photos
+      await deleteExistingProfilePhotos(uid)
 
       let downloadURL = ''
 

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import useSetCoverPhoto from '../../hooks/useSetCoverPhoto'
 import styles from './Styles/CoverPhotoUploader.module.css'
 import { useState } from 'react'
@@ -5,6 +6,8 @@ import { useState } from 'react'
 const CoverPhotoUploader = ({ setAddCover }) => {
   const [file, setFile] = useState(null)
   const { setCoverPhoto, loading, error } = useSetCoverPhoto()
+
+  const navigate = useNavigate()
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0])
@@ -16,6 +19,7 @@ const CoverPhotoUploader = ({ setAddCover }) => {
     if (success) {
       console.log('Cover photo set to default successfully')
       setAddCover()
+      navigate('/homepage')
     } else {
       console.log('Failed to set default cover photo')
     }
@@ -27,6 +31,7 @@ const CoverPhotoUploader = ({ setAddCover }) => {
       if (success) {
         console.log('Cover photo uploaded successfully')
         setAddCover()
+        navigate('/homepage')
       } else {
         console.log('Failed to upload cover photo')
       }
@@ -55,7 +60,7 @@ const CoverPhotoUploader = ({ setAddCover }) => {
           </button>
           <button
             onClick={handleUpload}
-            disabled={loading}
+            disabled={!file} // Disable button if loading or no file is selected
             className={styles.button}
           >
             {loading ? 'Uploading...' : 'Upload Photo'}

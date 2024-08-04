@@ -3,7 +3,7 @@ import styles from './ProfilePhotoUploader.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ProfilePhotoUploader = () => {
+const ProfilePhotoUploader = ({ setShowProfileUploader }) => {
   const [file, setFile] = useState(null)
   const { setProfilePhoto, loading, error } = useSetProfilePhoto()
   const navigate = useNavigate()
@@ -29,6 +29,7 @@ const ProfilePhotoUploader = () => {
       const success = await setProfilePhoto(file)
       if (success) {
         console.log('Profile photo uploaded successfully')
+        setShowProfileUploader(false)
         navigate('/homepage')
       } else {
         console.log('Failed to upload profile photo')

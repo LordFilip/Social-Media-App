@@ -1,27 +1,66 @@
 import Navbar from '../components/Navbar/Navbar'
 import useGetUser from '../hooks/useGetUser'
 import styles from './Styles/ProfilePage.module.css'
-import image from '../../public/assets/no-profile-photo.jpg' // Placeholder for profile photo
-import coverPhoto from '../../public/assets/no-cover-photo.jpg' // Placeholder for cover photo
+import image from '../../public/assets/no-profile-photo.jpg'
+import coverPhoto from '../../public/assets/no-cover-photo.jpg'
 import LeftSidebar from '../components/ProfilePage/LeftSidebar'
 import RightSidebar from '../components/ProfilePage/RightSidebar'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CoverPhotoUploader from '../components/ProfilePage/CoverPhotoUploader'
+import ProfilePhotoUploader from '../components/InitialSettingsPage/ProfilePhotoUploader'
+import ProfilePhotoMenu from '../components/ProfilePage/ProfilePost/ProfilePhotoMenu'
+import FullscreenProfilePhoto from '../components/ProfilePage/FullscreenProfilePhoto'
 
 const ProfilePage = () => {
   const { user, loading, error } = useGetUser()
 
-  const [addCover, setAddCover] = useState(false)
-  const [key, setKey] = useState(0) // State to trigger re-render
+  const [showCoverUploader, setShowCoverUploader] = useState(false)
+  const [showProfileUploader, setShowProfileUploader] = useState(false)
+  const [showProfilePhotoMenu, setShowProfilePhotoMenu] = useState(false)
+  const [showFullscreenProfilePhoto, setShowFullscreenProfilePhoto] =
+    useState(false)
 
-  const handleAddCover = () => {
-    setAddCover(!addCover)
+  const handleShowCoverUploader = () => {
+    setShowCoverUploader(true)
+    setShowProfileUploader(false)
   }
 
-  const handleCoverPhotoUpdate = () => {
-    setAddCover(false)
-    setKey(key + 1) // Update the key to trigger a re-render
+  const handleShowProfileUploader = () => {
+    setShowProfileUploader(true)
+    setShowCoverUploader(false)
   }
+
+  const handleCloseUploaders = () => {
+    setShowCoverUploader(false)
+    setShowProfileUploader(false)
+  }
+
+  const handleShowFullscreenProfilePhoto = () => {
+    console.log('bidon')
+    setShowFullscreenProfilePhoto(!showFullscreenProfilePhoto)
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        handleShowFullscreenProfilePhoto()
+      }
+    }
+
+    if (showFullscreenProfilePhoto) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    // Cleanup function to remove event listener and reset overflow
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'auto'
+    }
+  }, [showFullscreenProfilePhoto])
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>
@@ -37,8 +76,20 @@ const ProfilePage = () => {
 
   return (
     <>
-      {!addCover ? (
-        <div className={styles.profilePageContainer} key={key}>
+      {showCoverUploader || showProfileUploader ? (
+        <>
+          {showCoverUploader && (
+            <CoverPhotoUploader setAddCover={handleCloseUploaders} />
+          )}
+          {showProfileUploader && (
+            <ProfilePhotoUploader
+              setAddProfilePhoto={handleCloseUploaders}
+              setShowProfileUploader={setShowProfileUploader}
+            />
+          )}
+        </>
+      ) : (
+        <div className={styles.profilePageContainer}>
           <Navbar />
           <div className={styles.coverPhoto}>
             <img
@@ -46,7 +97,10 @@ const ProfilePage = () => {
               alt="Cover"
               className={styles.coverImage}
             />
-            <button className={styles.coverButton} onClick={handleAddCover}>
+            <button
+              className={styles.coverButton}
+              onClick={handleShowCoverUploader}
+            >
               Edit cover photo
             </button>
             <div className={styles.profilePhoto}>
@@ -54,7 +108,18 @@ const ProfilePage = () => {
                 src={user.profilePicURL || image}
                 alt="Profile"
                 className={styles.profileImage}
+                onClick={() => setShowProfilePhotoMenu(!showProfilePhotoMenu)}
               />
+              {showProfilePhotoMenu && (
+                <ProfilePhotoMenu
+                  handleShowProfileUploader={handleShowProfileUploader}
+                  showFullScreenProfilePhoto={showFullscreenProfilePhoto}
+                  setShowFullScreenProfilePhoto={setShowFullscreenProfilePhoto}
+                  handleShowFullscreenProfilePhoto={
+                    handleShowFullscreenProfilePhoto
+                  }
+                />
+              )}
             </div>
           </div>
           <div className={styles.username}>
@@ -64,9 +129,8 @@ const ProfilePage = () => {
             <LeftSidebar />
             <RightSidebar username={user.username} />
           </div>
+          {showFullscreenProfilePhoto && <FullscreenProfilePhoto />}
         </div>
-      ) : (
-        <CoverPhotoUploader setAddCover={handleCoverPhotoUpdate} />
       )}
     </>
   )

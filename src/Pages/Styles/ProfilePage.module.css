@@ -75,3 +75,9 @@
 .coverButton:hover {
   background-color: rgb(233, 237, 240);
 }
+.profilePhoto:hover {
+  cursor: pointer;
+}
+.profilePhoto {
+  position: relative;
+}

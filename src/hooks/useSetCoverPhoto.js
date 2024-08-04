@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { storage, firestore } from '../firebase/config'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  deleteObject,
+} from 'firebase/storage'
 import { doc, updateDoc } from 'firebase/firestore'
 
 const useSetCoverPhoto = () => {
@@ -21,6 +27,17 @@ const useSetCoverPhoto = () => {
 
       const uid = userInfo.uid
 
+      // Define a reference to the user's cover photo directory
+      const coverPhotosRef = ref(storage, `coverPhotos/${uid}/`)
+
+      // List all items in the coverPhotos directory
+      const listResult = await listAll(coverPhotosRef)
+
+      // Delete all existing cover photos
+      await Promise.all(
+        listResult.items.map((itemRef) => deleteObject(itemRef))
+      )
+
       let downloadURL = ''
 
       if (typeof fileOrURL === 'string') {
@@ -28,8 +45,11 @@ const useSetCoverPhoto = () => {
         downloadURL = fileOrURL
       } else {
         // Assume it's a file
-        const storageRef = ref(storage, `coverPhotos/${uid}/${fileOrURL.name}`)
-        const snapshot = await uploadBytes(storageRef, fileOrURL)
+        const newCoverPhotoRef = ref(
+          storage,
+          `coverPhotos/${uid}/${fileOrURL.name}`
+        )
+        const snapshot = await uploadBytes(newCoverPhotoRef, fileOrURL)
         downloadURL = await getDownloadURL(snapshot.ref)
       }
 
